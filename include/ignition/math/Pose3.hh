@@ -477,7 +477,7 @@ namespace ignition
         // Skip white spaces
         _in.setf(std::ios_base::skipws);
         Vector3<T> pos;
-        Quaternion<T> rot;
+        Vector3<T> rot;
         _in >> pos >> rot;
         _pose.Set(pos, rot);
         return _in;

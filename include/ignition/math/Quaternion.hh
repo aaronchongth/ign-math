@@ -1065,17 +1065,14 @@ namespace ignition
       public: friend std::istream &operator>>(std::istream &_in,
           ignition::math::Quaternion<T> &_q)
       {
-        Angle roll, pitch, yaw;
-
         // Skip white spaces
         _in.setf(std::ios_base::skipws);
-        _in >> roll >> pitch >> yaw;
-
+        T w, x, y, z;
+        _in >> w >> x >> y >> z;
         if (!_in.fail())
         {
-          _q.Euler(Vector3<T>(*roll, *pitch, *yaw));
+          _q.Set(w, x, y, z);
         }
-
         return _in;
       }
 
